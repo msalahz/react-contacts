@@ -186,3 +186,8 @@ body, .app {
   cursor: pointer;
   outline: none;
 }
+
+.contact-empty-message {
+  color: darkblue;
+  text-align: center;
+}

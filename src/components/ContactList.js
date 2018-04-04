@@ -1,17 +1,28 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { array, func } from 'prop-types'
 import ContactItem from './ContactItem'
 
-function ContactList({ contacts }) {
+function ContactList({ contacts, deleteContact }) {
   return (
     <ol className="contact-list">
-      {contacts.map(contact => (
-        <ContactItem key={contact.id} contact={contact} />
-      ))}
+      {Array.isArray(contacts) && contacts.length > 0 ? (
+        contacts.map(contact => (
+          <ContactItem
+            key={contact.id}
+            contact={contact}
+            deleteContact={deleteContact}
+          />
+        ))
+      ) : (
+        <div className="contact-empty-message">No Contacts!</div>
+      )}
     </ol>
   )
 }
 
-ContactList.propTypes = { contacts: PropTypes.array.isRequired }
+ContactList.propTypes = {
+  contacts: array.isRequired,
+  deleteContact: func.isRequired
+}
 
 export default ContactList

@@ -1,7 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { object, func } from 'prop-types'
 
-function ContactItem({ contact }) {
+function ContactItem({ contact, deleteContact }) {
   const { avatarURL, name, handle } = contact
 
   return (
@@ -14,11 +14,16 @@ function ContactItem({ contact }) {
         <p>{name}</p>
         <p>@{handle}</p>
       </div>
-      <button className="contact-remove">Remove</button>
+      <button className="contact-remove" onClick={() => deleteContact(contact)}>
+        Remove
+      </button>
     </li>
   )
 }
 
-ContactItem.propTypes = { contact: PropTypes.object.isRequired }
+ContactItem.propTypes = {
+  contact: object.isRequired,
+  deleteContact: func.isRequired
+}
 
 export default ContactItem
