@@ -1,21 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-class ContactItem extends Component {
-  render() {
-    return (
-      <li className="contact-list-item">
-        <div
-          className="contact-avatar"
-          style={{ backgroundImage: `url(${this.props.contact.avatarURL})` }}
-        />
-        <div className="contact-details">
-          <p>{this.props.contact.name}</p>
-          <p>@{this.props.contact.handle}</p>
-        </div>
-        <button className="contact-remove">Remove</button>
-      </li>
-    )
-  }
+function ContactItem({ contact }) {
+  const { avatarURL, name, handle } = contact
+
+  return (
+    <li className="contact-list-item">
+      <div
+        className="contact-avatar"
+        style={{ backgroundImage: `url(${avatarURL})` }}
+      />
+      <div className="contact-details">
+        <p>{name}</p>
+        <p>@{handle}</p>
+      </div>
+      <button className="contact-remove">Remove</button>
+    </li>
+  )
 }
+
+ContactItem.propTypes = { contact: PropTypes.object.isRequired }
 
 export default ContactItem

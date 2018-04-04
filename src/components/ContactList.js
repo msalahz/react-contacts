@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ContactItem from './ContactItem'
 
-class ContactList extends Component {
-  render() {
-    return (
-      <ol className="contact-list">
-        {this.props.contacts.map(contact => (
-          <ContactItem key={contact.id} contact={contact} />
-        ))}
-      </ol>
-    )
-  }
+function ContactList({ contacts }) {
+  return (
+    <ol className="contact-list">
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} />
+      ))}
+    </ol>
+  )
 }
+
+ContactList.propTypes = { contacts: PropTypes.array.isRequired }
 
 export default ContactList

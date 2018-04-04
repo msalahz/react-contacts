@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ContactList from './components/ContactList'
 
 const contacts = [
@@ -22,11 +22,8 @@ const contacts = [
   }
 ]
 
-// eslint-disable-next-line react/prefer-stateless-function
-class App extends Component {
-  render() {
-    return <ContactList contacts={contacts} />
-  }
+function App() {
+  return <ContactList contacts={contacts} />
 }
 
 export default App
