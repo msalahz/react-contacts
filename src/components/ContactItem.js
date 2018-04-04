@@ -10,7 +10,7 @@ class ContactItem extends Component {
         />
         <div className="contact-details">
           <p>{this.props.contact.name}</p>
-          <p>@S{this.props.contact.handle}</p>
+          <p>@{this.props.contact.handle}</p>
         </div>
         <button className="contact-remove">Remove</button>
       </li>
