@@ -1,8 +1,8 @@
-import React from 'react'
-import { object, func } from 'prop-types'
+import React from "react";
+import { object, func } from "prop-types";
 
 function ItemContact({ contact, deleteContact }) {
-  const { avatarURL, name, handle } = contact
+  const { avatarURL, name, handle } = contact;
 
   return (
     <li className="contact-list-item">
@@ -18,12 +18,12 @@ function ItemContact({ contact, deleteContact }) {
         Remove
       </button>
     </li>
-  )
+  );
 }
 
 ItemContact.propTypes = {
   contact: object.isRequired,
   deleteContact: func.isRequired
-}
+};
 
-export default ItemContact
+export default ItemContact;

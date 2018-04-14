@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import { array, func } from 'prop-types'
-import { Link } from 'react-router-dom'
-import ItemContact from './ItemContact'
+import React, { Component } from "react";
+import { array, func } from "prop-types";
+import { Link } from "react-router-dom";
+import ItemContact from "./ItemContact";
 
 class ListContacts extends Component {
   static propTypes = {
     contacts: array.isRequired,
     deleteContact: func.isRequired
-  }
+  };
 
   state = {
-    query: ''
-  }
+    query: ""
+  };
 
   handleInputChange = e => {
-    const { name, value, type, checked } = e.target
+    const { name, value, type, checked } = e.target;
 
     this.setState(() => ({
-      [name]: type === 'checkbox' ? checked : value
-    }))
-  }
+      [name]: type === "checkbox" ? checked : value
+    }));
+  };
 
-  clearQuery = () => this.setState(() => ({ query: '' }))
+  clearQuery = () => this.setState(() => ({ query: "" }));
 
   renderShowAll = (shownContacts, contacts) => (
     <div className="showing-contacts">
@@ -30,7 +30,7 @@ class ListContacts extends Component {
       </span>
       <button onClick={this.clearQuery}>Show all</button>
     </div>
-  )
+  );
 
   renderContactList = (shownContacts, deleteContact) =>
     shownContacts.map(contact => (
@@ -39,19 +39,19 @@ class ListContacts extends Component {
         contact={contact}
         deleteContact={deleteContact}
       />
-    ))
+    ));
 
   renderNoContacts = () => (
     <div className="contact-empty-message">No Contacts!</div>
-  )
+  );
 
   render() {
-    const { query } = this.state
-    const { contacts, deleteContact } = this.props
+    const { query } = this.state;
+    const { contacts, deleteContact } = this.props;
     const filterContacts = c =>
-      c.name.toLowerCase().includes(query.toLowerCase())
+      c.name.toLowerCase().includes(query.toLowerCase());
     const shownContacts =
-      query.length === 0 ? contacts : contacts.filter(filterContacts)
+      query.length === 0 ? contacts : contacts.filter(filterContacts);
 
     return (
       <div className="list-contacts">
@@ -79,8 +79,8 @@ class ListContacts extends Component {
             : this.renderNoContacts()}
         </ol>
       </div>
-    )
+    );
   }
 }
 
-export default ListContacts
+export default ListContacts;

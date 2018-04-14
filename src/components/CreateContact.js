@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import formSerialize from 'form-serialize'
-import ImageInput from './ImageInput'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import formSerialize from "form-serialize";
+import ImageInput from "./ImageInput";
 
 class CreateContact extends Component {
   static propTypes = {
     createContact: PropTypes.func.isRequired
-  }
+  };
 
   handleSubmit = e => {
-    e.preventDefault()
-    const contact = formSerialize(e.target, { hash: true })
-    this.props.createContact(contact)
-  }
+    e.preventDefault();
+    const contact = formSerialize(e.target, { hash: true });
+    this.props.createContact(contact);
+  };
 
   render() {
     return (
@@ -36,8 +36,8 @@ class CreateContact extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default CreateContact
+export default CreateContact;
